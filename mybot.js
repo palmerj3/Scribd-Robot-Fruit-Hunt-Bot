@@ -132,11 +132,11 @@ function find_highest_priority_fruit(args) {
   }
   
   prioritized_board.sort(function(a,b) { return a.closest_fruit - b.closest_fruit });
+    
+  prioritized_board.sort(function(a,b) { return a.distance - b.distance });
   
   prioritized_board.sort(function(a,b) { return a.rarity - b.rarity });
   
-  prioritized_board.sort(function(a,b) { return a.distance - b.distance });
-    
   //See if the second highest priority coordinate is the last target, to prevent jumping, and replace
   if (typeof(prioritized_board[1]) !== 'undefined' && last_target === prioritized_board[1]['coord']) {
     return prioritized_board[1]['coord'];
